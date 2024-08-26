@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Action Buttons</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 123, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
+        }
+    </style>
+    <script>
+        function triggerAction(actionType) {
+            fetch('/action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'action_type=' + actionType,
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert(actionType + ' completed successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Python Action Buttons</h1>
+    <button class="button" onclick="triggerAction('send_email')">Send Email</button>
+    <button class="button" onclick="triggerAction('send_sms')">Send SMS</button>
+    <button class="button" onclick="triggerAction('scrape_google')">Scrape Google</button>
+    <button class="button" onclick="triggerAction('get_location')">Get Location</button>
+    <button class="button" onclick="triggerAction('text_to_speech')">Text-to-Speech</button>
+    <button class="button" onclick="triggerAction('set_volume')">Set Volume</button>
+    <button class="button" onclick="triggerAction('send_sms_via_mobile')">Send SMS via Mobile</button>
+    <button class="button" onclick="triggerAction('send_bulk_emails')">Send Bulk Emails</button>
+</body>
+</html>
