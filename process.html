@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dataset Processing Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Processed Dataset Preview</h1>
+    <div class="container">
+        {{ data_preview|safe }}
+        <a href="/download"><button>Download Processed Data</button></a>
+        <a href="/"><button>Go Back</button></a>
+    </div>
+</body>
+</html>

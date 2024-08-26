@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Processing Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Image Processing Result</h1>
+    <div class="container">
+        <img src="{{ image_url }}" alt="Processed Image">
+        <a href="/"><button>Go Back</button></a>
+    </div>
+</body>
+</html>
